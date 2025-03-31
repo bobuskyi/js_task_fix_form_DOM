@@ -6,10 +6,11 @@ inputs.map((item) => {
   const label = document.createElement('label');
   const parentItem = item.parentNode;
 
-  parentItem.insertBefore(label, item);
+  item.placeholder = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+
   label.textContent = item.name;
   label.className = 'field-label';
   label.setAttribute('for', item.id);
 
-  item.placeholder = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+  parentItem.insertBefore(label, item);
 });
